@@ -1,0 +1,226 @@
+$buttonColor: #2ecc71;
+$buttonDark: darken($buttonColor, 10%);
+$buttonDarker: darken($buttonDark, 10%);
+$backgroundgradient1 : #C481C2 ;
+$backgroundgradient2 : darken($backgroundgradient1, 30%);
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+@function padding($padamount){
+  @return ($padamount);
+}
+
+.col-2{
+  display: block;
+}
+
+button {
+  background: $buttonColor;
+  border-radius: 3px;
+  box-shadow: 0px 5px 0px $buttonDark;
+  border: 0;
+  color: white;
+  font-size: 17px;
+  padding: 10px 30px;
+  display: inline-block;
+  outline: 0;
+
+
+  &:hover {
+    background: $buttonDark;
+    box-shadow: 0px 5px 0px $buttonDarker;
+  }
+  &:active {
+    box-shadow: none;
+    margin-top: 5px;
+  }
+}
+
+.card {
+    position: relative;
+    border-radius: .2em;
+    overflow: hidden;
+    text-align: left;
+    margin-bottom: .6em;
+    padding: padding(0);
+}
+
+.box{
+  margin: 2px;
+  padding: 2px;
+}
+
+.cent{
+  text-align: center;
+}
+
+.Ptop{
+  display: block;
+}
+
+.border{
+  border: solid black 1px;
+  background-color: rgb(192, 134, 204);
+}
+
+.padding{
+  padding: 10px;
+}
+
+.alignment{
+  text-align: center;
+  display: inline-block;
+}
+
+@mixin media($min-width) {
+  @media screen and (min-width: #{$min-width}){
+   @content
+  }
+}
+
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+body{
+  display:grid;
+  grid-template-areas:
+  "haus"
+  "valstika"
+  "midja"
+  "vinstri"
+  "haegri"
+  "fotur";
+  background-image: linear-gradient($backgroundgradient1, $backgroundgradient2);
+  text-align: center;
+  padding-top: 5px;
+}
+
+.header{
+  display: grid;
+  grid-area: haus;
+}
+.navbar{
+  display: grid;
+  grid-area: valstika;
+}
+.aside{
+  display: grid;
+  grid-area: vinstri;
+}
+.main{
+  display: grid;
+  grid-area: midja;
+}
+.article{
+  display: grid;
+  grid-area: haegri;
+}
+.footer{
+  display: grid;
+  grid-area: fotur;
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+
+  @include media(37.5em){
+    body{
+    display: grid;
+    grid-template-areas:
+    "valstika valstika valstika valstika valstika valstika valstika"
+    "haus haus haus haus haus haus haus"
+    "midja midja midja midja midja midja midja"
+    "vinstri vinstri vinstri vinstri vinstri vinstri vinstri"
+    "haegri haegri haegri haegri haegri haegri haegri"
+    "fotur fotur fotur fotur fotur fotur fotur";
+    background-image: linear-gradient($backgroundgradient1, $backgroundgradient2);
+  }
+  .header{
+    display: grid;
+    grid-area: haus;
+  }
+
+  .navbar{
+    display: grid;
+    grid-area: valstika;
+    grid-template-columns: repeat(7,1fr);
+  }
+  .aside{
+    display: grid;
+    grid-area: vinstri;
+  }
+  .main{
+    display: grid;
+    grid-area: midja;
+  }
+  .article{
+    display: grid;
+    grid-area: haegri;
+  }
+  .footer{
+    display: grid;
+    grid-area: fotur;
+  }
+
+  .col-2{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .Ptop{
+    padding-top: 100px;
+  }
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+  @include media(60em){
+    body{
+    display: grid;
+    grid-template-areas:
+    "haus haus haus haus haus haus haus"
+    "valstika valstika valstika valstika valstika valstika valstika"
+    "midja midja midja midja midja midja midja"
+    "vinstri vinstri vinstri vinstri vinstri vinstri vinstri"
+    "haegri haegri haegri haegri haegri haegri haegri"
+    "fotur fotur fotur fotur fotur fotur fotur";
+    background-image: linear-gradient($backgroundgradient1, $backgroundgradient2);
+  }
+
+  .header{
+    display: grid;
+    grid-area: haus;
+  }
+
+  .navbar{
+    display: grid;
+    grid-area: valstika;
+    grid-template-columns: repeat(7,1fr);
+  }
+  .aside{
+    display: grid;
+    grid-area: vinstri;
+  }
+  .main{
+    display: grid;
+    grid-area: midja;
+  }
+  .article{
+    display: grid;
+    grid-area: haegri;
+  }
+  .footer{
+    display: grid;
+    grid-area: fotur;
+  }
+  
+  .col-2{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .Ptop{
+    padding-top: 100px;
+  }
+
+}

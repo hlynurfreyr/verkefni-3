@@ -1,32 +1,56 @@
-
 {% extends "layout.html" %}
+
+
+{% block header %}
+
+{% include './header.html' %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% include './footer.html' %}
+
+{% endblock %}
 
 {% block content %}
 
-<h1>My Recipes</h1>
-
-<div class="flex three demo">
+<div>
 
 {% for post in posts %}
 
-    <div>
+    <div id="{{ post.title }}" >
 
-        <article class="card">
-            <header>
-                <img src="{{ post.thumbnail }}">
+        <br>
+
+        <article  class="card col-2 border alignment">
+            <header class="padding">
+                <img class="image" src="{{ post.thumbnail }}">
             </header>
-            <footer>
-                <h2>{{ post.title }}</h2>
-                <small>{{ post.date }}</small>
-                <p>
-                    {{ post.summary}}
-                </p>
-                <a class="button" href="posts/{{ post.slug }}.html">Recipe</a>
-                <br>
-                {% set list_of_tags = post.tags.split(",") %}
-                {% for tag in list_of_tags %}
-                    <button class="shyButton mybutton">{{ tag }}</button>
-                {% endfor %}
+            <footer class="Ptop">
+                <div class="col-2">
+                    <h2>{{ post.title }}</h2>
+                    <small class="box">{{ post.date }}</small>
+                </div>
+
+                <div>
+                    <p>
+                        {{ post.summary}}
+                    </p>
+                </div>
+
+                <div class="col-2">
+                    <div>
+                        <a class="button" href="posts/{{ post.slug }}.html">Recipe</a>
+                    </div>
+                    
+                    <div>
+                        {% set list_of_tags = post.tags.split(",") %}
+                        {% for tag in list_of_tags %}
+                            <button class="">{{ tag }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
             </footer>
             
         </article>

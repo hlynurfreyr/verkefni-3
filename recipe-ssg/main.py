@@ -2,6 +2,8 @@ import os
 from datetime import datetime
 from jinja2 import Environment, PackageLoader
 from markdown2 import markdown
+from minify import minify
+
 
 
 POSTS = {}
@@ -25,7 +27,8 @@ posts_metadata = [POSTS[post].metadata for post in POSTS]
 tags = [post['tags'] for post in posts_metadata]
 home_html = home_template.render(posts=posts_metadata, tags=tags)
 
-with open('output/home.html', 'w') as file:
+output = os.path.join(os.getcwd(), 'output\\home.html')
+with open(output, 'w') as file:
     file.write(home_html)
 
 for post in POSTS:
@@ -43,3 +46,5 @@ for post in POSTS:
     os.makedirs(os.path.dirname(post_file_path), exist_ok=True)
     with open(post_file_path, 'w') as file:
         file.write(post_html)
+
+minify('scss/style.css', 'output/css/style.min.css')

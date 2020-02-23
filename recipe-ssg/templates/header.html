@@ -1,0 +1,9 @@
+<header class="header">
+    <h1>My Recipies</h1>
+    <h4>recipies for everybody</h4>
+</header>
+<nav class="navbar">
+    {% for post in posts %}
+        <a class="box" href="#{{ post.title }}">{{ post.title }}</a>
+    {% endfor %}
+</nav>
